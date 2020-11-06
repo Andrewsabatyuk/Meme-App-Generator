@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
+import {useHistory} from 'react-router-dom';
 
 export const Meme =()=>{
 
     const [memes, setMemes] = useState([]);
     const [memeIndex, setMemeIndex] = useState(0);
     const [captions, setCaptions] = useState([]);
+    const history = useHistory();
+
 
     const updateCaption = (e, index) =>{
       const text = e.target.value || '';
@@ -23,7 +26,7 @@ export const Meme =()=>{
     const generateMeme = () => {
       const currentMeme = memes[memeIndex];
       const formData = new FormData();
-
+      
       formData.append('username', ' AndrewSabatyuk');
       formData.append('password', 'qwerty123');
       formData.append('template_id', currentMeme.id);
