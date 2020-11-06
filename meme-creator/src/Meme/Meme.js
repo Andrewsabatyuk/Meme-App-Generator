@@ -7,6 +7,19 @@ export const Meme =()=>{
     const [memeIndex, setMemeIndex] = useState(0);
     const [captions, setCaptions] = useState([]);
 
+    const updateCaption = (e, index) =>{
+      const text = e.target.value || '';
+      setCaptions(
+        captions.map((c,i) =>{
+          if (index === 1){
+            return text;
+          } else {
+            return c;
+          }
+        })
+      );
+    };
+
     const shuffleMemes = (array) => {
       for (let i = array.length -1; i > 0; i--){
         const j = Math.floor(Math.random() * i);
@@ -45,10 +58,10 @@ export const Meme =()=>{
         <button onClick={() => setMemeIndex(memeIndex + 1)} className={styles.skip}>Next</button>
          {
            captions.map((c, index) =>(
-             <input key={index}/>
+             <input onChange={(e) => updateCaption(e, index)} key={index}/>
            ))
          }
-          <img src={memes[0].url}/> 
+          <img alt='meme' src={memes[0].url}/> 
        </div> : <></>
    );
-}
+};
