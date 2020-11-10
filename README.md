@@ -4,3 +4,5 @@ i'm use this video https://www.youtube.com/watch?v=SMzAcBEc6Zk&t=359s&ab_channel
 
 and this code 
 https://github.com/portexe/MemeCreator/blob/master/src/Meme/Meme.js
+
+Nedded to fix little bugs
