@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import styles from './styles.module.css';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 export const Meme =()=>{
 
     const [memes, setMemes] = useState([]);
     const [memeIndex, setMemeIndex] = useState(0);
     const [captions, setCaptions] = useState([]);
+
     const history = useHistory();
 
 
@@ -14,7 +15,7 @@ export const Meme =()=>{
       const text = e.target.value || '';
       setCaptions(
         captions.map((c,i) =>{
-          if (index === 1){
+          if (index === i){
             return text;
           } else {
             return c;
@@ -27,8 +28,8 @@ export const Meme =()=>{
       const currentMeme = memes[memeIndex];
       const formData = new FormData();
       
-      formData.append('username', ' AndrewSabatyuk');
-      formData.append('password', 'qwerty123');
+      formData.append('username', ' AndResSab');
+      formData.append('password', ',jujhjlxfyb');
       formData.append('template_id', currentMeme.id);
       captions.forEach((c, index) => formData.append(`boxes[${index}][text]`, c));
     
@@ -37,6 +38,7 @@ export const Meme =()=>{
       body: formData
     }).then(res => {
       res.json().then(res => {
+        // console.log(res);
         history.push(`/generated?url=${res.data.url}`);
       });
     });
@@ -83,7 +85,7 @@ export const Meme =()=>{
              <input onChange={(e) => updateCaption(e, index)} key={index}/>
            ))
          }
-          <img alt='meme' src={memes[0].url}/> 
+          <img alt='meme' src={memes[memeIndex].url}/> 
        </div> : <></>
    );
 };
