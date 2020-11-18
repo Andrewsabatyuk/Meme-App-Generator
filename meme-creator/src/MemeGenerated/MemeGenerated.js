@@ -16,7 +16,7 @@ export const MemeGenerated = () =>{
     const copyLink = () =>{
         clipboard.copy(url);
         setCopied(true);
-    }
+    };
     return (
         <div className={styles.container}>
             <button onClick={() => history.push('/')} className={styles.home}>

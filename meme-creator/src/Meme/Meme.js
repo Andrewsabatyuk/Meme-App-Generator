@@ -38,7 +38,6 @@ export const Meme =()=>{
       body: formData
     }).then(res => {
       res.json().then(res => {
-        // console.log(res);
         history.push(`/generated?url=${res.data.url}`);
       });
     });
@@ -67,7 +66,7 @@ export const Meme =()=>{
 
       useEffect(() =>{
         if(memes.length){
-          setCaptions(Array(memes[memeIndex].box_count).fill(' '));
+          setCaptions(Array(memes[memeIndex].box_count).fill(''));
         }
       }, [memeIndex, memes]);
 
